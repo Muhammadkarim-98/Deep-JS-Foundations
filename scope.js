@@ -16,7 +16,7 @@ function otherClass() {
 	ask("Why?");
 }
 otherClass();
-// ask() // ReferenceError: ask is not defined.
+ask() // ReferenceError: ask is not defined.
 //
 function teacher() { }
 let myTeacher = function anotherTeacher() {
@@ -24,7 +24,7 @@ let myTeacher = function anotherTeacher() {
 };
 console.log(teacher);
 console.log(myTeacher);
-// console.log(anotherTeacher); // ReferenceError: anotherTeacher is not defined.
+console.log(anotherTeacher); // ReferenceError: anotherTeacher is not defined.
 //
 let fun1 = function () { }; // This is FUNCTION EXPRESSION;
 let fun2 = function express123() { }; // This is NAMED FUNCTION EXPRESSION;
