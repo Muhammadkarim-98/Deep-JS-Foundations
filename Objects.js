@@ -42,3 +42,48 @@ class anotherWorkshop extends workshop {
 
 var jsPart = new anotherWorkshop('Danish');
 jsPart.speakUp("what's up?")
+
+//
+
+const fullName = "Oluwatobi Sofela";
+
+// Nested functions containing two more fullName variables:
+function profile() {
+	const fullName = "Tobi Sho";
+
+	function sayName() {
+		const fullName = "Oluwa Sofe";
+
+		function writeName() {
+			return fullName;
+		}
+		return writeName();
+	}
+	return sayName();
+};
+
+console.log(profile())
+
+console.log(sumFun(2, 4))
+console.log(sumCon(2, 4))
+
+function sumFun(a, b) { return a + b }; // 6
+const sumCon = function sumFun(a, b) { return a + b }; // ReferenceError: Cannot access 'sumCon' before initialization
+
+function Animal(name, kind, age) {
+	this.name = name;
+	this.kind = kind;
+	this.age = age;
+}
+
+const dog = new Animal('amma', 'satta', 'doddy');
+console.log(dog.kind);
+
+const myObject = {
+	city: "Madrid",
+	greet() {
+		console.log(`Greetings from ${this.city}`);
+	},
+};
+
+console.log(myObject) // Greetings from Madrid
