@@ -78,3 +78,32 @@ console.log(null >= 0) // true
 
 console.log(String(-9)) // '-9'
 console.log('25' > '12') // true
+
+console.log([] == ![]); // true
+console.log(+[] == +![]) // true
+console.log(0 == +false) // true
+console.log(0 == 0) // true
+
+console.log(true == 0) // false
+console.log(true == []) // false
+console.log(true == ![]) // false
+
+console.log(false == []) // true
+console.log(false == ![]) // true
+
+console.log(!!'false' == !!'true') // true
+console.log(!!'false' === !!'true'); // true
+
+console.log("b" + "a" + +"a" + "a") // baNaNa
+console.log(NaN == NaN) // false
+console.log(Object.is(NaN, NaN)); // true
+
+console.log(+![]) // 0
+console.log(+!![]) // 1
+
+console.log(null == false) // false
+
+console.log([1, 2, 3] + [4, 5, 6]) // 1,2,34,5,6
+
+console.log([undefined] == 0); // true
+console.log(10000000000000000 + 1) // 10000000000000000
