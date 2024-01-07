@@ -1,33 +1,31 @@
-var x = 1;
-
-{
-	var x = 2;
+var x = 9; {
+    var x = 2;
 }
 console.log(x);
 //
 var teacher = "Kyle";
 
 function otherClass() {
-	var teacher = "Suzy";
+    var teacher = "Suzy";
 
-	function ask(question) {
-		console.log(teacher, question);
-	}
-	ask("Why?");
+    function ask(question) {
+        console.log(teacher, question);
+    }
+    ask("Why?");
 }
 otherClass();
 ask() // ReferenceError: ask is not defined.
-//
-function teacher() { }
+    //
+function teacher() {}
 let myTeacher = function anotherTeacher() {
-	console.log(anotherTeacher);
+    console.log(anotherTeacher);
 };
 console.log(teacher);
 console.log(myTeacher);
 console.log(anotherTeacher); // ReferenceError: anotherTeacher is not defined.
 //
-let fun1 = function () { }; // This is FUNCTION EXPRESSION;
-let fun2 = function express123() { }; // This is NAMED FUNCTION EXPRESSION;
+let fun1 = function() {}; // This is FUNCTION EXPRESSION;
+let fun2 = function express123() {}; // This is NAMED FUNCTION EXPRESSION;
 // EXERCISE:
 
 let getStudentById = (studentId) => studentRecords.find((record) => record.id == studentId);
@@ -39,10 +37,10 @@ let getStudentById = (studentId) => studentRecords.find((record) => record.id ==
 // }
 
 let printRecords = (recordIds) =>
-	recordIds
-		.map(getStudentById)
-		.sort((record1, record2) => (record1.name < record2.name ? -1 : record1.name > record2.name ? 1 : 0))
-		.forEach((record) => console.log(`${record.name} ${record.id}: ${record.paid ? "Paid" : "Not Paid"}`));
+    recordIds
+    .map(getStudentById)
+    .sort((record1, record2) => (record1.name < record2.name ? -1 : record1.name > record2.name ? 1 : 0))
+    .forEach((record) => console.log(`${record.name} ${record.id}: ${record.paid ? "Paid" : "Not Paid"}`));
 
 // function printRecords(recordIds) {
 // 	let records = recordIds.map(getStudentById);
@@ -86,15 +84,15 @@ let remindUnpaid = recordIds => printRecords(recordIds.filter(studentId => !getS
 var currentEnrollment = [410, 105, 664, 375];
 
 var studentRecords = [
-	{ id: 313, name: "Frank", paid: true },
-	{ id: 410, name: "Suzy", paid: true },
-	{ id: 709, name: "Brian", paid: false },
-	{ id: 105, name: "Henry", paid: false },
-	{ id: 502, name: "Mary", paid: true },
-	{ id: 664, name: "Bob", paid: false },
-	{ id: 250, name: "Peter", paid: true },
-	{ id: 375, name: "Sarah", paid: true },
-	{ id: 867, name: "Greg", paid: false },
+    { id: 313, name: "Frank", paid: true },
+    { id: 410, name: "Suzy", paid: true },
+    { id: 709, name: "Brian", paid: false },
+    { id: 105, name: "Henry", paid: false },
+    { id: 502, name: "Mary", paid: true },
+    { id: 664, name: "Bob", paid: false },
+    { id: 250, name: "Peter", paid: true },
+    { id: 375, name: "Sarah", paid: true },
+    { id: 867, name: "Greg", paid: false },
 ];
 
 printRecords(currentEnrollment);
