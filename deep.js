@@ -3,9 +3,6 @@
 // 		let xNegZero = isItNegZero(x);
 // 		let yNegZero = isItNegZero(y);
 
-const { type } = require("express/lib/response");
-const { add } = require("nodemon/lib/rules");
-
 // 		if (xNegZero || yNegZero) {
 
 // 		} else if (isItNaN(x) && isItNaN(y)) {
@@ -257,23 +254,24 @@ const { add } = require("nodemon/lib/rules");
 // ---------------------------------
 // PROTOTYPE INHERITANCE
 
-// function User(email, name) {
-// 	(this.email = email), (this.name = name), this.online = false;
-// };
+function User(name, birthYear) {
+	this.name = name;
+	this.birthYear = new Date().getFullYear() - birthYear;
 
-// function Admin(...arg) {
-// 	User.apply(this, arg)
-// };
+	// this.acceptance = function () {
+	// 	if (this.birthYear > 65) { console.log(`You are in ${this.birthYear} and you are too old!`) } else if (this.birthYear < 18) { console.log(`You are in ${this.birthYear} and you are too young!`) } else { console.log(`You are Accepted!`) }
+	// };
+}
 
-// User.prototype.login = function () { this.online = true, console.log(this.email, 'logged in') };
-// User.prototype.logout = function () { this.online = false, console.log(this.email, 'logged out') };
+User.prototype.acceptance = function () {
+	if (this.birthYear > 65) { console.log(`You are in ${this.birthYear} and you are too old!`) } else if (this.birthYear < 18) { console.log(`You are in ${this.birthYear} and you are too young!`) } else { console.log(`You are Accepted!`) }
+};
 
-// const userOne = new User('uzbek@mail.com', 'Muhammadkarim');
-// const userTwo = new User('xondamir@mail.com', 'Xondamir');
-// const admin = new Admin()
+const user1 = new User("Sara", 1957);
+const user2 = new User("Kareem", 1998);
 
-// userOne.login();
-// userTwo.logout();
+user1.acceptance();
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //PRACTISE ON "https://github.com/denysdovhan/wtfjs"
@@ -461,7 +459,31 @@ const { add } = require("nodemon/lib/rules");
 // const result = fn(add);
 // console.log(result(10)(10));
 
-const str = "string";
-const arr = [1, 2, 3, 4, 5];
-arr[3] = 0;
-console.log(arr);
+// const str = "string";
+// const arr = [1, 2, 3, 4, 5];
+// arr[3] = 0;
+// console.log(arr);
+
+// const compose = (a, b) => x => a(b(x));
+// const addOne = (x) => x + 1;
+// const double = (x) => x * 2;
+// const composedFn = compose(addOne, double);
+// console.log(composedFn(5));
+
+// (function () {
+// 	let d = 85;
+// 	console.log(d)
+// })()
+
+// console.log(x); // Output: undefined
+// var x = 5;
+// console.log(x); // Output: 5
+
+// function Person(name, age) {
+// 	this.name = name;
+// 	this.age = age;
+// 	this.hello = function () { console.log(`hello, my name ${name}`) }
+// };
+// const person1 = new Person('Kareem', 26);
+// console.log(person1.name);
+// person1.hello();
