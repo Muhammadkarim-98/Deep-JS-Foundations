@@ -252,26 +252,51 @@
 // userOne.logout();
 
 // ---------------------------------
-// PROTOTYPE INHERITANCE
+// PROTOTYPE and INHERITANCE
 
 function User(name, birthYear) {
 	this.name = name;
 	this.birthYear = new Date().getFullYear() - birthYear;
-
+	// THEN, NO NEED THIS FN INSIDE THE USER.
 	// this.acceptance = function () {
 	// 	if (this.birthYear > 65) { console.log(`You are in ${this.birthYear} and you are too old!`) } else if (this.birthYear < 18) { console.log(`You are in ${this.birthYear} and you are too young!`) } else { console.log(`You are Accepted!`) }
 	// };
 }
-
+// BELOW CREATED A PROTOTYPE FOR USER
 User.prototype.acceptance = function () {
-	if (this.birthYear > 65) { console.log(`You are in ${this.birthYear} and you are too old!`) } else if (this.birthYear < 18) { console.log(`You are in ${this.birthYear} and you are too young!`) } else { console.log(`You are Accepted!`) }
+	if (this.birthYear > 65) {
+		console.log(`You are in ${this.birthYear} and you are too old!`);
+	} else if (this.birthYear < 18) {
+		console.log(`You are in ${this.birthYear} and you are too young!`);
+	} else {
+		console.log(`You are Accepted!`);
+	}
 };
+
+// CREATED OTHER FN THEN USER
+function Admin(...arg) {
+	User.apply(this, arg);
+	// THIS "ROLE" PROPERTY CREATED ONLY FOR ADMIN
+	this.role = "super admin";
+}
+
+// ADMIN INHERITING PROTOTYPES FROM USER
+Admin.prototype = Object.create(User.prototype);
+// NEW PROPERTY FOR ADMIN THAT CAN DELETE OF THE USER
+Admin.prototype.delete = function (u) {
+	users = users.filter(user => { return user.name != u.name });
+};
+
 
 const user1 = new User("Sara", 1957);
 const user2 = new User("Kareem", 1998);
+const admin = new Admin("Ishaq", 1977);
+// ARRAY WHICH IS COLLECTED ALL USERS
+let users = [user1, user2];
 
 user1.acceptance();
-
+admin.acceptance();
+admin.delete(users[0]);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //PRACTISE ON "https://github.com/denysdovhan/wtfjs"
